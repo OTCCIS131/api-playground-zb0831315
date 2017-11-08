@@ -1,0 +1,25 @@
+$(function () {
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            loading: false,
+            showing: 'planets',
+            planets: [],
+            planet: null,
+        },
+        methods: {
+            loadPlanets() {
+                this.loading = true
+
+                this.$http.get('https://swapi.co/api/planets/')
+                    .then(resp => {
+                        this.planets = resp.body
+                        this.loading = false
+                    })
+            }
+        },
+        selectPlanet(planet) {
+            this.planet = planet
+        }
+    })
+})
