@@ -18,8 +18,10 @@ $(function () {
                     })
             }
         },
-        selectPlanet(planet) {
+        selectPlanets(planet) {
             this.planet = planet
+            this.showing = 'planets'
+            this.loadPlanets()
         }
     })
 })
